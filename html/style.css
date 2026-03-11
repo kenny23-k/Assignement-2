@@ -280,3 +280,51 @@ button[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
 }
+
+
+/* hamburger navbar section */
+
+.mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: url('hamburger-icon.svg') no-repeat;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    aspect-ratio: 1;
+}
+
+.primary-navigation {
+    position: fixed;
+    insert: 0 0 0 30%;
+    background-color: white;
+    flex-direction: column;
+    padding: min(100px, 50%);
+    z-index: 1000;
+    transform: translateX(100%)
+    transition: transform 0.3s ease-out;
+}
+
+.primary-navigation[data-visible="true"] {
+    transform: translateX(0);
+}
+
+.mobile-nav-toggle[aria-expanded="true"] {
+    background: url('close-icon.svg') no-repeat;
+}
+
+@media (min-width: 800px) {
+    .mobile-nav-toggle {
+        display: none;
+    }
+
+    .primary-navigation {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        padding: 0;
+    }
+}
